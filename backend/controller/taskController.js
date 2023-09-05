@@ -23,18 +23,18 @@ class TaskController {
   }
   static insert(req, res) {
     try {
-      if (!req.query.title) {
+      if (!req.body.title) {
         res.status(400).json({
           status: "FAILED",
           message: "Title must be filled!",
-          data: req.query,
+          data: req.body,
         });
       } else {
         const id = Helper.getNewID(tasks);
         const newTask = Factory.newTask(
           id,
-          req.query.title,
-          req.query.desc,
+          req.body.title,
+          req.body.desc,
           new Date().toString(),
           new Date().toString()
         );
@@ -86,8 +86,8 @@ class TaskController {
           data: req.query,
         });
       } else {
-        data.title = req.query.title;
-        data.desc = req.query.desc;
+        data.title = req.body.title;
+        data.desc = req.body.desc;
         data.updateAt = new Date().toString();
         res.status(200).json({
           status: "OK",

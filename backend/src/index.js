@@ -1,12 +1,14 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const taxAPI = require("../routes/taxApi");
+const bodyParser = require("body-parser");
+
+const app = express();
 
 app.use(cors());
-app.use(taxAPI);
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(taxAPI);
 
 app.listen(3030);
