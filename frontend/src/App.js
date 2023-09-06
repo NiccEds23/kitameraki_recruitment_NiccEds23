@@ -4,9 +4,8 @@ import TaskForm from "./components/TaskForm";
 function App() {
   return (
     <div className="App">
-      <h1> Todo Management App</h1>
+      <h1> Task Management App</h1>
       <TaskForm />
-      h2
     </div>
   );
 }
