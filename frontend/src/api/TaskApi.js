@@ -4,7 +4,7 @@ const baseUrl = "http://localhost:3030/tasks";
 
 class TaskApi {
   getAll(params) {
-    return axios.get(baseUrl, { params });
+    return axios.get(baseUrl + `?page=${params}`);
   }
 
   insert(query) {
