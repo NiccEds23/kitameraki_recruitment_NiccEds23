@@ -1,7 +1,7 @@
 const Factory = require("../models/task");
 const Helper = require("../helpers/helper");
-const tasks = require("../data/task.json");
 const taskFilename = "./data/task.json";
+var tasks = require("../data/task.json");
 
 class TaskController {
   static getAll(req, res) {
@@ -107,11 +107,13 @@ class TaskController {
         message: "Task Not Found",
       });
     } else {
-      tasks.splice(tasks.indexOf(data), 1);
+      tasks = tasks.filter((task) => task.id !== parseInt(req.params.id));
+      Helper.writeFileJSON(taskFilename, tasks);
       res.status(200).json({
         status: "OK",
         message: "Task Successfully Deleted",
         data: data,
+        task: req.params.id,
       });
     }
   }
