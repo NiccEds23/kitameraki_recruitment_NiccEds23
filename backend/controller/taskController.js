@@ -79,11 +79,11 @@ class TaskController {
           status: "NULL",
           message: "Task Not Found",
         });
-      } else if (!req.query.title) {
+      } else if (!req.body.title) {
         res.status(400).json({
           status: "FAILED",
           message: "Title must be filled!",
-          data: req.query,
+          data: req.body,
         });
       } else {
         data.title = req.body.title;
