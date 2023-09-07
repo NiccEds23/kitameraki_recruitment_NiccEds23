@@ -1,11 +1,11 @@
 import "./App.css";
-import TaskForm from "./components/TaskForm";
+import Task from "./components/Task";
 
 function App() {
   return (
     <div className="App">
       <h1> Task Management App</h1>
-      <TaskForm />
+      <Task />
     </div>
   );
 }
