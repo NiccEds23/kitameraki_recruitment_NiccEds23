@@ -1,17 +1,98 @@
 //styling
-.app {
-  background-color: #d1e0fb;
+body {
+  background-color: #fbfbfc;
 }
-.container {
+.form-container {
   display: flex;
   justify-content: center;
-  .form-container {
+  .form-card {
     width: 30%;
     padding: 5vh 5vw;
-    border: 1px solid #000;
+    border: 3px solid #ccdde2;
+    background-color: #fff;
+    border-radius: 10px;
+    .form-title {
+      margin-top: 0;
+    }
     .title-form,
     .desc-form {
       padding: 1vh 0;
     }
+  }
+}
+.list-container {
+  padding: 3vh 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .list-title {
+    width: 100%;
+  }
+  div {
+    .task-card {
+      width: 50vw;
+      margin-top: 2vh;
+      border: 1px solid #ccdde2;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      .card-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        .title-sec {
+          padding: 2vh 0;
+          width: 32.5%;
+          .title-label {
+            padding-left: 2vw;
+            margin: 0;
+            text-align: left;
+          }
+          .root-98 {
+            margin: 1vh 2vw;
+          }
+          .title-data {
+            font-weight: 500;
+            padding-left: 2vw;
+            margin: 1vh 0;
+            text-align: left;
+          }
+        }
+        .desc-sec {
+          padding: 2vh 0;
+          width: 52.5%;
+          .desc-label {
+            padding-left: 2vw;
+            margin: 0;
+            text-align: left;
+          }
+          .root-98 {
+            margin: 1vh 2vw;
+          }
+          .desc-data {
+            font-weight: 500;
+            padding-left: 2vw;
+            margin: 1vh 0;
+            text-align: left;
+          }
+        }
+        .delete-sec {
+          cursor: pointer;
+          padding: 2vh 0;
+          background-color: rgba($color: #ff0000, $alpha: 0.8);
+          color: #fff;
+          width: 15%;
+        }
+        .delete-sec:hover {
+          background-color: rgba($color: #ff0000, $alpha: 1);
+        }
+      }
+    }
+  }
+  .task-empty {
+    width: 100%;
+  }
+  .task-last-page {
+    width: 100%;
   }
 }
