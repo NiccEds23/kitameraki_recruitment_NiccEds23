@@ -29,7 +29,8 @@ export default function TaskForm({ setTrigger }) {
         }
       })
       .catch((error) => {
-        toast.error(error.res.data.message, {
+        console.log(error);
+        toast.error(error.response.data.message, {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -44,6 +45,7 @@ export default function TaskForm({ setTrigger }) {
       setTrigger(false);
     }, 500);
     setValues({ title: "", desc: "" });
+    setDisabled(true);
   };
 
   const handleSubmit = (event) => {
