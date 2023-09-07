@@ -1,0 +1,17 @@
+//styling
+.app {
+  background-color: #d1e0fb;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  .form-container {
+    width: 30%;
+    padding: 5vh 5vw;
+    border: 1px solid #000;
+    .title-form,
+    .desc-form {
+      padding: 1vh 0;
+    }
+  }
+}
