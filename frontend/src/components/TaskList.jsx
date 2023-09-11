@@ -14,6 +14,7 @@ export default function TaskList(props) {
   const [editing, setEditing] = useState("");
   const [titleErrors, setTitleErrors] = useState("");
 
+  // Get all tasks from server
   const getAllTask = async () => {
     setIsLoading(true);
     await TaskApi.getAll(page)
@@ -51,6 +52,7 @@ export default function TaskList(props) {
     setIsLoading(false);
   };
 
+  // Delete task by id
   const handleDelete = async (id) => {
     await TaskApi.delete(id)
       .then((res) => {
@@ -80,6 +82,7 @@ export default function TaskList(props) {
       });
   };
 
+  // Update the task data by id
   const updateTask = async (item, id) => {
     await TaskApi.update(item, id)
       .then((res) => {
@@ -108,6 +111,7 @@ export default function TaskList(props) {
       });
   };
 
+  // Function to handle page scrolling
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop >
@@ -119,6 +123,7 @@ export default function TaskList(props) {
     }
   };
 
+  // Function to handle value change on the field
   const handleChange = (item, id) => {
     let { name, value } = item;
 
@@ -130,6 +135,7 @@ export default function TaskList(props) {
       }
     }
 
+    // Set new data into the updated task
     const index = taskList.findIndex((task) => task.id === id);
     setTasksList([
       ...taskList.slice(0, index),
@@ -138,11 +144,13 @@ export default function TaskList(props) {
     ]);
   };
 
+  // Function to handle click outside the field
   const handleBlur = (item, id) => {
     setEditing("");
     updateTask(item, id);
   };
 
+  // Function to handle 'Enter' and 'Escape' to commit the change
   const handleKeyDown = (event, item, id) => {
     if (event.key === "Enter" || event.key === "Escape") {
       setEditing("");
@@ -150,7 +158,9 @@ export default function TaskList(props) {
     }
   };
 
+  // Function to trigger get all the tasks
   useEffect(() => {
+    // trigger means user has been insert new data, then get all the tasks again from the first page
     if (trigger) {
       setTasksList([]);
       setPage(1);
@@ -159,6 +169,7 @@ export default function TaskList(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
+  // Function to handle scroll
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {

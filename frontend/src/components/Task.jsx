@@ -11,6 +11,7 @@ export default function TaskForm({ setTrigger }) {
   const [titleErrors, setTitleErrors] = useState("");
   const [disabled, setDisabled] = useState(true);
 
+  // Submit new task
   const submitForm = async () => {
     const query = values;
     await TaskApi.insert(query)
@@ -48,6 +49,7 @@ export default function TaskForm({ setTrigger }) {
     setDisabled(true);
   };
 
+  // Function to handle submit button
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -57,6 +59,7 @@ export default function TaskForm({ setTrigger }) {
     return;
   };
 
+  // Function to handle value change on the field
   const handleChange = (event) => {
     event.persist();
 
